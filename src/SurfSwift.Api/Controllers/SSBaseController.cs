@@ -4,7 +4,7 @@ namespace SurfSwift.Api.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class WeatherForecastController : ControllerBase
+    public class SSBaseController : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> Get()
