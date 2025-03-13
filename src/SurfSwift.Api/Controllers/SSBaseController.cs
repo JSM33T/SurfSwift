@@ -4,7 +4,7 @@ namespace SurfSwift.Api.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class SSBaseController : ControllerBase
+    public class SsBaseController : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> Get()

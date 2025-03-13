@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SurfSwift.Entities\SurfSwift.Entities.csproj" />
+  </ItemGroup>
 </Project>
