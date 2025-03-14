@@ -5,7 +5,7 @@ namespace SurfSwift.Engine.Helpers
     /// <summary>
     /// Contains helper methods for interacting with Playwright page elements, including waiting, executing actions with wait, and retrying actions.
     /// </summary>
-    public static class ActionHelpers
+    public static class ActionHelper
     {
         /// <summary>
         /// Waits for an element to appear on the page within a specified timeout.

@@ -2,6 +2,6 @@
 {
     public class AutomationConfig
     {
-        public required string ActionScript { get; set; }
+        public string ActionScript { get; set; }
     }
 }
