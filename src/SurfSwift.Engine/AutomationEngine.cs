@@ -31,7 +31,7 @@ namespace SurfSwift.Engine
             var automationId = Guid.NewGuid();
 
             //var chromePath = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
-            var chromePath = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe";
+            var chromePath = @"C:\Program Files\Google\Chrome\Application\chrome.exe";
             var args = $"--remote-debugging-port=1212 --uid={automationId} --user-data-dir=\"C:\\chrome-profile\"";
 
             ProcessStartInfo psi = new()

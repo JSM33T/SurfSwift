@@ -1,14 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-SurfSwift.WorkerService-c45e3784-8481-47eb-9640-35cecee73207</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
   </ItemGroup>
@@ -16,6 +21,5 @@
   <ItemGroup>
     <ProjectReference Include="..\SurfSwift.Engine\SurfSwift.Engine.csproj" />
     <ProjectReference Include="..\SurfSwift.Entities\SurfSwift.Entities.csproj" />
-    <ProjectReference Include="..\SurfSwift.Infra\SurfSwift.Infra.csproj" />
   </ItemGroup>
 </Project>

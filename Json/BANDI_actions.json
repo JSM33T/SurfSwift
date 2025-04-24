@@ -1,0 +1,20 @@
+[
+    {
+        "action": "navigate",
+        "selector": "https://en.bandisoft.com/bandizip/"
+    },
+    {
+        "action": "click",
+        "element": "#main_btn_1",
+        "isBypassed": true
+    },
+    {
+        "action": "download",
+        "selector": "#main_btn_1",
+        "downloadPath": "d:\\AUTOMATION_STUFF\\myfile.exe"
+    },
+    {
+        "action": "kill",
+        "IsBypassed": false
+    }
+]
