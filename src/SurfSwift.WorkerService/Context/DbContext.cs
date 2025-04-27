@@ -15,26 +15,21 @@ namespace SurfSwift.WorkerService.Context
         { }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<ActionProject> ActionProjects { get; set; }
-        public DbSet<ActionTemplate> ActionTemplates { get; set; }
+        public DbSet<ActionProject> ActionProject { get; set; }
+        public DbSet<ActionTemplate> ActionTemplate { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             // User Table Mapping
-            modelBuilder.Entity<User>().ToTable("tblUsers");
+            modelBuilder.Entity<User>().ToTable("tblUser");
 
             // Project Table Mapping
-            modelBuilder.Entity<ActionProject>().ToTable("tblProjects");
+            modelBuilder.Entity<ActionProject>().ToTable("tblActionProject");
 
             // ActionTemplate Table Mapping
-            modelBuilder.Entity<ActionTemplate>().ToTable("tblActionTemplates");
+            modelBuilder.Entity<ActionTemplate>().ToTable("tblActionTemplate");
 
-            modelBuilder.Entity<ActionProject>()
-           .HasOne(p => p.CreatedByUser)
-           .WithMany()
-           .HasForeignKey(p => p.CreatedByUserId)
-           .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

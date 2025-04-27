@@ -24,25 +24,42 @@ namespace SurfSwift.WorkerService
 
             foreach (var user in users)
             {
-                var projects = await dbContext.ActionProjects
-                    .Where(p => p.CreatedByUserId == user.UserId)
-                    .Include(p => p.ActionTemplates)
-                    .ToListAsync(cancellationToken);
-
-                foreach (var project in projects)
+                try
                 {
-                    foreach (var template in project.ActionTemplates)
-                    {
-                        await automationEngine.Initialize(new AutomationConfig
-                        {
-                            ActionScript = template.ActionJson
-                        });
+                    var projects = await dbContext.ActionProject
+                        .Where(p => p.UserId == user.UserId)
+                        .Include(p => p.Template)
+                        .ToListAsync(cancellationToken);
 
-                        logger.LogInformation("Initialized automation for Template: {TemplateName} of Project: {ProjectName} by User: {UserName}",
-                            template.TemplateName, project.ProjectName, user.UserName);
+                    foreach (var project in projects)
+                    {
+                        foreach (var template in project.Template)
+                        {
+                            try
+                            {
+                                await automationEngine.Initialize(new AutomationConfig
+                                {
+                                    ActionScript = template.ActionJson
+                                });
+
+                                logger.LogInformation(
+                                    "Initialized automation for Template: {TemplateName} of Project: {ProjectName} by User: {UserName}",
+                                    template.TemplateName, project.ProjectName, user.UserName);
+                            }
+                            catch (Exception ex)
+                            {
+                                logger.LogError(ex, "Error initializing automation for Template: {TemplateName} of Project: {ProjectName} by User: {UserName}",
+                                    template.TemplateName, project.ProjectName, user.UserName);
+                            }
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, "Error processing projects for User: {UserName}", user.UserName);
+                }
             }
+
         }
     }
 }

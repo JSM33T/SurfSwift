@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SurfSwift.WorkerService.ListDTO;
 
 namespace SurfSwift.WorkerService
 {
@@ -13,20 +14,24 @@ namespace SurfSwift.WorkerService
     {
         public SurfSwiftDbContext CreateDbContext(string[] args)
         {
-            // Build configuration to access appsettings.json
+            // Get the path to the assembly where this code is running
+            var assemblyLocation = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var assemblyDirectory = Path.GetDirectoryName(assemblyLocation);
+
+            // Navigate up to the project root (adjust as needed for your structure)
+            var projectRoot = Path.GetFullPath(Path.Combine(assemblyDirectory, "../../.."));
+
+            Console.WriteLine($"Looking for appsettings.json in: {projectRoot}");
+
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(projectRoot)
+                .AddJsonFile("appsettings.json", optional: false)
                 .Build();
 
+            var configDto = configuration.GetSection("AppSetting").Get<ConfigurationListDTO>();
+
             var optionsBuilder = new DbContextOptionsBuilder<SurfSwiftDbContext>();
-
-            // Get the connection string from the appsettings.json
-            var connectionString = configuration.GetSection("AppSetting")["ConnectionString"];
-
-
-            // Configure the DbContext to use SQL Server
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer(configDto.ConnectionString);
 
             return new SurfSwiftDbContext(optionsBuilder.Options);
         }
