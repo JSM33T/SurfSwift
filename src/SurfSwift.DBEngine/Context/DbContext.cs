@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SurfSwift.WorkerService.Models;
+using SurfSwift.DBEngine.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SurfSwift.WorkerService.Context
+namespace SurfSwift.DBEngine.Context
 {
     public class SurfSwiftDbContext : DbContext
     {

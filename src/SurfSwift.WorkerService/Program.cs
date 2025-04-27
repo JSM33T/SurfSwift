@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using SurfSwift.Engine;
 using SurfSwift.WorkerService;
 using SurfSwift.WorkerService.ListDTO;
-using SurfSwift.WorkerService.Context;
+using SurfSwift.DBEngine.Context;
 
 var builder = Host.CreateApplicationBuilder(args);
 

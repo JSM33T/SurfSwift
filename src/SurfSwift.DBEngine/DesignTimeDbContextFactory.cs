@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore;
-using SurfSwift.WorkerService.Context;
+using SurfSwift.DBEngine.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SurfSwift.WorkerService.ListDTO;
+using SurfSwift.DBEngine.ListDTO;
+using Microsoft.Extensions.Configuration;
 
-namespace SurfSwift.WorkerService
+namespace SurfSwift.DBEngine
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<SurfSwiftDbContext>
     {

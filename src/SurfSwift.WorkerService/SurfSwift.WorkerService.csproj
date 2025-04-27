@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SurfSwift.DBEngine\SurfSwift.DBEngine.csproj" />
     <ProjectReference Include="..\SurfSwift.Engine\SurfSwift.Engine.csproj" />
     <ProjectReference Include="..\SurfSwift.Entities\SurfSwift.Entities.csproj" />
   </ItemGroup>

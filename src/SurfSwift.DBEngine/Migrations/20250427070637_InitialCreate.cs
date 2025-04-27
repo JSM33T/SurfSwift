@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SurfSwift.WorkerService.Migrations
+namespace SurfSwift.DBEngine.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -56,8 +56,7 @@ namespace SurfSwift.WorkerService.Migrations
                     TemplateName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActionJson = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsPublished = table.Column<bool>(type: "bit", nullable: false),
-                    ActionProjectId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true)
+                    ActionProjectId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,11 +67,6 @@ namespace SurfSwift.WorkerService.Migrations
                         principalTable: "tblActionProject",
                         principalColumn: "ActionProjectId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_tblActionTemplate_tblActionProject_UserId",
-                        column: x => x.UserId,
-                        principalTable: "tblActionProject",
-                        principalColumn: "ActionProjectId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -84,11 +78,6 @@ namespace SurfSwift.WorkerService.Migrations
                 name: "IX_tblActionTemplate_ActionProjectId",
                 table: "tblActionTemplate",
                 column: "ActionProjectId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_tblActionTemplate_UserId",
-                table: "tblActionTemplate",
-                column: "UserId");
         }
 
         /// <inheritdoc />

@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SurfSwift.WorkerService.Context;
+using SurfSwift.DBEngine.Context;
 
 #nullable disable
 
-namespace SurfSwift.WorkerService.Migrations
+namespace SurfSwift.DBEngine.Migrations
 {
     [DbContext(typeof(SurfSwiftDbContext))]
-    [Migration("20250427055827_InitialCreate")]
-    partial class InitialCreate
+    partial class SurfSwiftDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +21,7 @@ namespace SurfSwift.WorkerService.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.ActionProject", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.ActionProject", b =>
                 {
                     b.Property<int>("ActionProjectId")
                         .ValueGeneratedOnAdd()
@@ -49,7 +46,7 @@ namespace SurfSwift.WorkerService.Migrations
                     b.ToTable("tblActionProject", (string)null);
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.ActionTemplate", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.ActionTemplate", b =>
                 {
                     b.Property<int>("ActionTemplateId")
                         .ValueGeneratedOnAdd()
@@ -71,19 +68,14 @@ namespace SurfSwift.WorkerService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("ActionTemplateId");
 
                     b.HasIndex("ActionProjectId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("tblActionTemplate", (string)null);
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.User", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -111,36 +103,34 @@ namespace SurfSwift.WorkerService.Migrations
                     b.ToTable("tblUser", (string)null);
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.ActionProject", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.ActionProject", b =>
                 {
-                    b.HasOne("SurfSwift.WorkerService.Models.User", null)
+                    b.HasOne("SurfSwift.DBEngine.Models.User", "User")
                         .WithMany("Project")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.ActionTemplate", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.ActionTemplate", b =>
                 {
-                    b.HasOne("SurfSwift.WorkerService.Models.ActionProject", "Project")
-                        .WithMany()
+                    b.HasOne("SurfSwift.DBEngine.Models.ActionProject", "Project")
+                        .WithMany("Template")
                         .HasForeignKey("ActionProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SurfSwift.WorkerService.Models.ActionProject", null)
-                        .WithMany("Template")
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Project");
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.ActionProject", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.ActionProject", b =>
                 {
                     b.Navigation("Template");
                 });
 
-            modelBuilder.Entity("SurfSwift.WorkerService.Models.User", b =>
+            modelBuilder.Entity("SurfSwift.DBEngine.Models.User", b =>
                 {
                     b.Navigation("Project");
                 });

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SurfSwift.WorkerService.ListDTO
+namespace SurfSwift.DBEngine.ListDTO
 {
     public class ConfigurationListDTO
     {

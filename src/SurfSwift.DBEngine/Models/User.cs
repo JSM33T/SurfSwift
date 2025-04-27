@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SurfSwift.WorkerService.Models
+namespace SurfSwift.DBEngine.Models
 {
     [Table("tblUser")]
     public class User
