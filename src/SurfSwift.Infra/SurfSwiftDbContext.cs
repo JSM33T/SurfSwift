@@ -5,15 +5,16 @@ namespace SurfSwift.Infra
 {
     public class SurfSwiftDbContext : DbContext
     {
-        public SurfSwiftDbContext(DbContextOptions<SurfSwiftDbContext> options)
-          : base(options)
+        public SurfSwiftDbContext(DbContextOptions<SurfSwiftDbContext> options) : base(options) { }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<ActionProject> ActionProjects { get; set; }
+        public DbSet<ActionTemplate> ActionTemplates { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            // Fluent API if needed
         }
-
-        public DbSet<ConfigurationItem> Configurations { get; set; }
-
-        public DbSet<ActionScript> ActionScripts { get; set; }
-
-        public DbSet<UserData> ReplacementData { get; set; }
     }
 }

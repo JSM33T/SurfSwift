@@ -5,13 +5,13 @@ VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurfSwift.Api", "SurfSwift.Api\SurfSwift.Api.csproj", "{9E45AFD5-6BBC-427C-8F72-0E61C8655D56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfSwift.WorkerService", "SurfSwift.WorkerService\SurfSwift.WorkerService.csproj", "{7CC82EC4-D737-436E-9B4E-BBA872112E09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurfSwift.WorkerService", "SurfSwift.WorkerService\SurfSwift.WorkerService.csproj", "{7CC82EC4-D737-436E-9B4E-BBA872112E09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfSwift.Engine", "SurfSwift.Engine\SurfSwift.Engine.csproj", "{4BFC2FD5-B552-47DA-86BF-1EE3C189E463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurfSwift.Engine", "SurfSwift.Engine\SurfSwift.Engine.csproj", "{4BFC2FD5-B552-47DA-86BF-1EE3C189E463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfSwift.Entities", "SurfSwift.Entities\SurfSwift.Entities.csproj", "{8280CC5F-58C2-44BA-8749-1D9C4C2DF113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurfSwift.Entities", "SurfSwift.Entities\SurfSwift.Entities.csproj", "{8280CC5F-58C2-44BA-8749-1D9C4C2DF113}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfSwift.Infra", "SurfSwift.Infra\SurfSwift.Infra.csproj", "{F860FF87-F8AC-453F-A355-6A7155BEBC3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfSwift.DBEngine", "SurfSwift.DBEngine\SurfSwift.DBEngine.csproj", "{2019282E-53C9-469C-801E-CE94B9321715}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{8280CC5F-58C2-44BA-8749-1D9C4C2DF113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8280CC5F-58C2-44BA-8749-1D9C4C2DF113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8280CC5F-58C2-44BA-8749-1D9C4C2DF113}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F860FF87-F8AC-453F-A355-6A7155BEBC3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F860FF87-F8AC-453F-A355-6A7155BEBC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F860FF87-F8AC-453F-A355-6A7155BEBC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F860FF87-F8AC-453F-A355-6A7155BEBC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2019282E-53C9-469C-801E-CE94B9321715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2019282E-53C9-469C-801E-CE94B9321715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2019282E-53C9-469C-801E-CE94B9321715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2019282E-53C9-469C-801E-CE94B9321715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
